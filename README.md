@@ -63,6 +63,18 @@ Follow these steps to get a local copy up and running.
 
 4.  Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+## 🚀 Deployment
+
+This project is configured for **GitHub Pages**.
+
+To deploy a new version:
+
+```bash
+npm run deploy
+```
+
+The site will be live at: **https://dlaurora.github.io/Dev-Gaming-Landing-Page/**
+
 ## 📧 Configuration (EmailJS)
 
 The Pre-Order system is set up to use **EmailJS** for sending confirmation emails. By default, it runs in "Simulation Mode" (logging to console). To enable real emails:
