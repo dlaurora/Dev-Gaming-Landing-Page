@@ -1,0 +1,19 @@
+{
+    "nav": {
+        "gameInfo": "Info del Juego",
+        "features": "Características",
+        "characters": "Personajes",
+        "gallery": "Galería",
+        "news": "Noticias",
+        "world": "Mundo",
+        "faq": "FAQ",
+        "specs": "Requisitos",
+        "preOrder": "Pre-Ordenar"
+    },
+    "hero": {
+        "welcome": "Bienvenido al Futuro",
+        "subtitle": "Elévate Sobre el Código",
+        "playTrailer": "Ver Tráiler",
+        "explore": "Explorar"
+    }
+}
