@@ -20,14 +20,14 @@ export const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: t('nav.gameInfo'), href: '/#game-info' },
-        { name: t('nav.features'), href: '/#features' },
-        { name: t('nav.characters'), href: '/#characters' },
-        { name: t('nav.gallery'), href: '/#gallery' },
-        { name: t('nav.news'), href: '/news' },
-        { name: t('nav.world'), href: '/world' },
-        { name: t('nav.faq'), href: '/faq' },
-        { name: t('nav.specs'), href: '/specs' },
+        { name: t('nav.gameInfo'), to: '/#game-info', isHash: true },
+        { name: t('nav.features'), to: '/#features', isHash: true },
+        { name: t('nav.characters'), to: '/#characters', isHash: true },
+        { name: t('nav.gallery'), to: '/#gallery', isHash: true },
+        { name: t('nav.news'), to: '/news', isHash: false },
+        { name: t('nav.world'), to: '/world', isHash: false },
+        { name: t('nav.faq'), to: '/faq', isHash: false },
+        { name: t('nav.specs'), to: '/specs', isHash: false },
     ];
 
     const changeLanguage = (lng: string) => {
@@ -47,13 +47,13 @@ export const Navbar = () => {
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <a
+                        <Link
                             key={link.name}
-                            href={link.href}
+                            to={link.to}
                             className="text-sm font-rajdhani font-medium text-gray-300 hover:text-primary tracking-wider transition-colors uppercase"
                         >
                             {link.name}
-                        </a>
+                        </Link>
                     ))}
 
                     {/* Language Switcher */}
@@ -91,14 +91,14 @@ export const Navbar = () => {
                     >
                         <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.href}
+                                    to={link.to}
                                     className="text-lg font-rajdhani font-bold text-white hover:text-primary tracking-widest uppercase"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
 
                             <div className="flex gap-4 justify-center py-4 border-t border-white/10">
