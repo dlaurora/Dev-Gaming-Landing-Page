@@ -1,0 +1,19 @@
+{
+    "nav": {
+        "gameInfo": "Game Info",
+        "features": "Features",
+        "characters": "Characters",
+        "gallery": "Gallery",
+        "news": "News",
+        "world": "World",
+        "faq": "FAQ",
+        "specs": "Specs",
+        "preOrder": "Pre-Order Now"
+    },
+    "hero": {
+        "welcome": "Welcome to the Future",
+        "subtitle": "Rise Above the Code",
+        "playTrailer": "Play Trailer",
+        "explore": "Explore Features"
+    }
+}

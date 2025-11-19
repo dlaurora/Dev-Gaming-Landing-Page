@@ -1,0 +1,19 @@
+{
+    "nav": {
+        "gameInfo": "ゲーム情報",
+        "features": "特徴",
+        "characters": "キャラクター",
+        "gallery": "ギャラリー",
+        "news": "ニュース",
+        "world": "ワールド",
+        "faq": "よくある質問",
+        "specs": "動作環境",
+        "preOrder": "予約注文"
+    },
+    "hero": {
+        "welcome": "未来へようこそ",
+        "subtitle": "コードを超越せよ",
+        "playTrailer": "トレーラー再生",
+        "explore": "機能を見る"
+    }
+}

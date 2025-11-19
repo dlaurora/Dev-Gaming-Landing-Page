@@ -2,9 +2,12 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/Button';
 import { Play, ChevronDown } from 'lucide-react';
+import { Countdown } from './Countdown';
+import { useTranslation } from 'react-i18next';
 
 export const Hero = () => {
     const ref = useRef(null);
+    const { t } = useTranslation();
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"],
@@ -33,7 +36,7 @@ export const Hero = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <h2 className="text-primary font-rajdhani font-bold tracking-[0.2em] text-xl mb-4 uppercase">
-                        Welcome to the Future
+                        {t('hero.welcome')}
                     </h2>
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-orbitron font-black text-white mb-6 tracking-tighter relative">
                         <span className="relative inline-block">
@@ -46,10 +49,14 @@ export const Hero = () => {
                         </span>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500"> HORIZON</span>
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-rajdhani leading-relaxed">
-                        Experience the next generation of open-world cyberpunk action.
-                        Survive the neon-drenched streets and forge your legacy.
+                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 font-rajdhani leading-relaxed">
+                        {t('hero.subtitle')}
                     </p>
+
+                    {/* Countdown Timer */}
+                    <div className="mb-10">
+                        <Countdown />
+                    </div>
                 </motion.div>
 
                 <motion.div
@@ -60,10 +67,10 @@ export const Hero = () => {
                 >
                     <Button variant="primary" className="flex items-center gap-2">
                         <Play className="w-5 h-5 fill-current" />
-                        Play Trailer
+                        {t('hero.playTrailer')}
                     </Button>
                     <Button variant="outline">
-                        Explore Features
+                        {t('hero.explore')}
                     </Button>
                 </motion.div>
             </div>

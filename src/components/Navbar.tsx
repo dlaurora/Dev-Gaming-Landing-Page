@@ -1,97 +1,118 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Gamepad2 } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { Button } from './ui/Button';
+import { cn } from '../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const location = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const navLinks = [
-        { name: 'Game Info', href: '/#game-info' },
-        { name: 'Features', href: '/#features' },
-        { name: 'Classes', href: '/#characters' },
-        { name: 'Media', href: '/#gallery' },
-        { name: 'FAQ', href: '/faq' },
-        { name: 'Specs', href: '/specs' },
+        { name: t('nav.gameInfo'), href: '/#game-info' },
+        { name: t('nav.features'), href: '/#features' },
+        { name: t('nav.characters'), href: '/#characters' },
+        { name: t('nav.gallery'), href: '/#gallery' },
+        { name: t('nav.news'), href: '/news' },
+        { name: t('nav.world'), href: '/world' },
+        { name: t('nav.faq'), href: '/faq' },
+        { name: t('nav.specs'), href: '/specs' },
     ];
 
-    const isHome = location.pathname === '/';
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng);
+    };
 
     return (
-        <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-dark/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
-                }`}
-        >
-            <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link to="/" className="flex items-center gap-2">
-                    <Gamepad2 className="w-8 h-8 text-primary animate-pulse" />
-                    <span className="text-2xl font-orbitron font-bold tracking-widest text-white">
-                        NEON<span className="text-primary">HORIZON</span>
-                    </span>
+        <nav className={cn(
+            "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
+            scrolled ? "bg-black/80 backdrop-blur-md border-primary/20 py-4" : "bg-transparent py-6"
+        )}>
+            <div className="container mx-auto px-6 flex justify-between items-center">
+                <Link to="/" className="text-2xl font-orbitron font-bold text-white tracking-widest hover:text-primary transition-colors">
+                    NEON<span className="text-primary">HORIZON</span>
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden lg:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <Link
+                        <a
                             key={link.name}
-                            to={link.href.startsWith('/#') && isHome ? link.href.substring(1) : link.href}
-                            className="text-sm font-rajdhani font-semibold tracking-wide text-gray-300 hover:text-primary transition-colors uppercase"
+                            href={link.href}
+                            className="text-sm font-rajdhani font-medium text-gray-300 hover:text-primary tracking-wider transition-colors uppercase"
                         >
                             {link.name}
-                        </Link>
+                        </a>
                     ))}
+
+                    {/* Language Switcher */}
+                    <div className="flex items-center gap-2 border-l border-white/20 pl-4">
+                        <Globe className="w-4 h-4 text-gray-400" />
+                        <button onClick={() => changeLanguage('en')} className={cn("text-xs font-bold hover:text-primary transition-colors", i18n.language === 'en' ? "text-primary" : "text-gray-400")}>EN</button>
+                        <button onClick={() => changeLanguage('es')} className={cn("text-xs font-bold hover:text-primary transition-colors", i18n.language === 'es' ? "text-primary" : "text-gray-400")}>ES</button>
+                        <button onClick={() => changeLanguage('jp')} className={cn("text-xs font-bold hover:text-primary transition-colors", i18n.language === 'jp' ? "text-primary" : "text-gray-400")}>JP</button>
+                    </div>
+
                     <Link to="/preorder">
-                        <Button variant="primary" className="ml-4">
-                            Pre-Order Now
+                        <Button variant="primary">
+                            {t('nav.preOrder')}
                         </Button>
                     </Link>
                 </div>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    className="lg:hidden text-white hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isMobileMenuOpen ? <X /> : <Menu />}
+                    {isOpen ? <X /> : <Menu />}
                 </button>
             </div>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Menu */}
             <AnimatePresence>
-                {isMobileMenuOpen && (
+                {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 w-full bg-dark/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-6 items-center"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="lg:hidden bg-black/95 border-b border-primary/20 overflow-hidden"
                     >
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-lg font-orbitron text-white hover:text-primary"
-                            >
-                                {link.name}
+                        <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    className="text-lg font-rajdhani font-bold text-white hover:text-primary tracking-widest uppercase"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+
+                            <div className="flex gap-4 justify-center py-4 border-t border-white/10">
+                                <button onClick={() => changeLanguage('en')} className={cn("text-sm font-bold", i18n.language === 'en' ? "text-primary" : "text-gray-400")}>EN</button>
+                                <button onClick={() => changeLanguage('es')} className={cn("text-sm font-bold", i18n.language === 'es' ? "text-primary" : "text-gray-400")}>ES</button>
+                                <button onClick={() => changeLanguage('jp')} className={cn("text-sm font-bold", i18n.language === 'jp' ? "text-primary" : "text-gray-400")}>JP</button>
+                            </div>
+
+                            <Link to="/preorder" onClick={() => setIsOpen(false)}>
+                                <Button variant="primary" className="w-full">
+                                    {t('nav.preOrder')}
+                                </Button>
                             </Link>
-                        ))}
-                        <Link to="/preorder" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
-                            <Button variant="primary" className="w-full">
-                                Pre-Order Now
-                            </Button>
-                        </Link>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

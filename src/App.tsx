@@ -13,6 +13,10 @@ import { SystemRequirements } from './pages/SystemRequirements';
 import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { PreOrder } from './pages/PreOrder';
+import { News } from './pages/News';
+import { World } from './pages/World';
+
+import { AudioPlayer } from './components/AudioPlayer';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -64,6 +68,7 @@ function AppContent() {
     <div className="min-h-screen bg-dark text-white selection:bg-primary selection:text-black">
       <ScrollToTop />
       <Navbar />
+      <AudioPlayer />
       <main className="relative z-10">
         <Routes>
           <Route path="/" element={
@@ -75,11 +80,13 @@ function AppContent() {
               <Gallery />
             </>
           } />
+          <Route path="/preorder" element={<PreOrder />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/world" element={<World />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/specs" element={<SystemRequirements />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/preorder" element={<PreOrder />} />
         </Routes>
         <Footer />
       </main>
