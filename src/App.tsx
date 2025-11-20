@@ -94,10 +94,14 @@ function AppContent() {
   );
 }
 
+import { Suspense } from 'react';
+
 function App() {
   return (
     <Router>
-      <AppContent />
+      <Suspense fallback={<div className="flex items-center justify-center h-screen bg-black text-primary font-orbitron">LOADING SYSTEM...</div>}>
+        <AppContent />
+      </Suspense>
     </Router>
   );
 }

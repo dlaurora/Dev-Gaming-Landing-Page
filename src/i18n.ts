@@ -9,6 +9,8 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLng: 'en',
+        supportedLngs: ['en', 'es', 'jp'],
+        load: 'languageOnly', // This ensures en-US resolves to en
         debug: true,
         interpolation: {
             escapeValue: false,
@@ -16,6 +18,9 @@ i18n
         backend: {
             loadPath: import.meta.env.BASE_URL + 'locales/{{lng}}/translation.json',
         },
+        react: {
+            useSuspense: true, // Explicitly enable suspense
+        }
     });
 
 export default i18n;
