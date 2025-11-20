@@ -15,5 +15,178 @@
         "subtitle": "Rise Above the Code",
         "playTrailer": "Play Trailer",
         "explore": "Explore Features"
+    },
+    "news": {
+        "title": "TRANSMISSIONS",
+        "subtitle": "LATEST UPDATES FROM THE DEVELOPMENT TEAM",
+        "readMore": "Read Transmission"
+    },
+    "world": {
+        "title": "NEO-VERIDIA",
+        "subtitle": "EXPLORE THE SECTORS"
+    },
+    "faq": {
+        "title": "FREQUENTLY ASKED",
+        "subtitle": "QUESTIONS",
+        "description": "Everything you need to know about Neon Horizon.",
+        "q1": "What platforms will Neon Horizon be available on?",
+        "a1": "Neon Horizon will launch on PC (Steam, Epic Games Store), PlayStation 5, and Xbox Series X|S. A cloud version is also in development.",
+        "q2": "Is there a multiplayer mode?",
+        "a2": "Yes! The game features seamless drop-in/drop-out co-op for up to 4 players, as well as dedicated PvP zones within the open world.",
+        "q3": "What are the minimum system requirements?",
+        "a3": "We recommend at least an NVIDIA GTX 1060 or AMD equivalent for 1080p Low settings. For the full experience with Ray Tracing, an RTX 3060 or higher is recommended. Check our System Requirements page for details.",
+        "q4": "Will there be microtransactions?",
+        "a4": "Neon Horizon is a premium title. Microtransactions are strictly limited to cosmetic items only. No pay-to-win mechanics.",
+        "q5": "Can I customize my character?",
+        "a5": "Absolutely. Our 'Cyber-Forge' system allows for deep customization of your character's appearance, cybernetics, and skill trees.",
+        "q6": "Is the world fully open?",
+        "a6": "Yes, the metropolis of 'Neo-Veridia' is a massive, contiguous open world with no loading screens between districts or interiors.",
+        "q7": "Does the game support cross-play?",
+        "a7": "Yes, full cross-play and cross-progression are supported across all platforms from day one.",
+        "q8": "When is the release date?",
+        "a8": "We are targeting a Holiday 2025 release. Sign up for our newsletter to get the latest updates on beta testing.",
+        "q9": "Will there be DLC?",
+        "a9": "We have a robust post-launch roadmap including new districts, story expansions, and character classes.",
+        "q10": "How do I report a bug?",
+        "a10": "During the beta and after launch, you can report bugs directly through the in-game menu or via our official support portal."
+    },
+    "specs": {
+        "title": "SYSTEM",
+        "subtitle": "REQUIREMENTS",
+        "description": "Prepare your rig for the ultimate cyberpunk experience. From optimized low-end performance to bleeding-edge 4K ray tracing.",
+        "component": "Component",
+        "minimum": "MINIMUM",
+        "recommended": "RECOMMENDED",
+        "ultra": "ULTRA",
+        "lowSettings": "Low Settings",
+        "mediumSettings": "Medium Settings",
+        "highSettings": "High Settings",
+        "resolution": "Resolution / FPS",
+        "storage": "Storage",
+        "noteLabel": "NOTE",
+        "noteText": "Ray Tracing features require an RTX 20-series or RX 6000-series GPU or newer. SSD is strictly required for seamless open-world streaming."
+    },
+    "contact": {
+        "title": "CONTACT",
+        "subtitle": "SUPPORT",
+        "description": "Encountered a glitch in the matrix? Need assistance? We're here to help.",
+        "directChannels": "Direct Channels",
+        "hqLocation": "HQ Location",
+        "messageSent": "Message Sent!",
+        "responsePromise": "Our support team will respond within 24 hours.",
+        "sendAnother": "Send another message",
+        "nameLabel": "Codename / Name",
+        "namePlaceholder": "Enter your name",
+        "emailLabel": "Comms Link / Email",
+        "emailPlaceholder": "Enter your email",
+        "subjectLabel": "Subject",
+        "subjectPlaceholder": "What's this about?",
+        "messageLabel": "Transmission / Message",
+        "messagePlaceholder": "Type your message here...",
+        "transmitting": "Transmitting...",
+        "sendButton": "Send Transmission"
+    },
+    "privacy": {
+        "title": "PRIVACY",
+        "subtitle": "POLICY",
+        "lastUpdated": "Last Updated: November 19, 2025",
+        "section1": {
+            "title": "1. Data Collection",
+            "content": "At Neon Horizon Studios, we take your privacy seriously. We collect only the data necessary to provide you with the best gaming experience. This includes:",
+            "item1": "Account information (username, email address)",
+            "item2": "Gameplay statistics and progression data",
+            "item3": "Hardware specifications for performance optimization",
+            "item4": "Crash reports and technical diagnostics"
+        },
+        "section2": {
+            "title": "2. How We Use Your Data",
+            "content": "Your data is used primarily to:",
+            "item1": "Authenticate your account and secure your progress",
+            "item2": "Match you with other players in multiplayer modes",
+            "item3": "Analyze game balance and improve features",
+            "item4": "Send important updates regarding service status (if opted in)"
+        },
+        "section3": {
+            "title": "3. Data Protection",
+            "content1": "We employ industry-standard encryption (AES-256) to protect your personal information both in transit and at rest. We do not sell your personal data to third parties.",
+            "content2": "You have the right to request a copy of your data or request its deletion at any time through our support portal."
+        },
+        "section4": {
+            "title": "4. Cookies & Tracking",
+            "content": "Our website uses essential cookies to maintain your session and preferences. We use limited analytics cookies to understand how users interact with our site to improve navigation and content."
+        },
+        "contact": "For any privacy-related inquiries, please contact our Data Protection Officer at privacy@neonhorizon.game"
+    },
+    "features": {
+        "sectionTitle": "System Features",
+        "mainTitle": "REDEFINE REALITY",
+        "seamlessOpenWorld": {
+            "title": "Seamless Open World",
+            "description": "Explore a massive, neon-drenched metropolis without loading screens."
+        },
+        "nextGenCombat": {
+            "title": "Next-Gen Combat",
+            "description": "Fluid, physics-based combat system with customizable cybernetics."
+        },
+        "multiplayerRaids": {
+            "title": "Multiplayer Raids",
+            "description": "Team up with friends to take down mega-corporations."
+        },
+        "rayTracingOverdrive": {
+            "title": "Ray Tracing Overdrive",
+            "description": "Experience hyper-realistic lighting and reflections."
+        }
+    },
+    "characters": {
+        "sectionTitle": "Choose Your Path",
+        "mainTitle": "CLASSES",
+        "vanguard": {
+            "name": "VANGUARD",
+            "role": "Tank / Assault",
+            "description": "Heavily armored frontline specialist equipped with energy shields and kinetic hammers."
+        },
+        "ghost": {
+            "name": "GHOST",
+            "role": "Stealth / Infiltrator",
+            "description": "Master of optical camouflage and silent takedowns. Uses nanotech blades."
+        },
+        "technomancer": {
+            "name": "TECHNOMANCER",
+            "role": "Support / Hacker",
+            "description": "Controls the battlefield by hacking enemy cybernetics and deploying drones."
+        }
+    },
+    "gameInfo": {
+        "title": "ENTER THE",
+        "subtitle": "SIMULATION",
+        "description": "Neon Horizon is not just a game; it's a living, breathing digital ecosystem. In the year 2077, the boundaries between physical and digital reality have dissolved.",
+        "livingWorld": {
+            "title": "A Living World",
+            "description": "Explore Neo-Veridia, a sprawling metropolis where every NPC has a routine, every action has a consequence, and the city itself evolves based on player choices."
+        },
+        "yourMission": {
+            "title": "Your Mission",
+            "description": "As a rogue operative, you must uncover the truth behind \"Project Aether.\" Infiltrate mega-corporations, hack secure networks, and decide the fate of humanity."
+        },
+        "socialWarfare": {
+            "title": "Social Warfare",
+            "description": "Form alliances with other players, control districts, and engage in massive faction wars that reshape the political landscape of the city."
+        }
+    },
+    "gallery": {
+        "sectionTitle": "Media",
+        "mainTitle": "INTO THE VOID"
+    },
+    "footer": {
+        "newsletter": {
+            "title": "JOIN THE RESISTANCE",
+            "description": "Sign up for exclusive updates and in-game rewards.",
+            "placeholder": "Enter your email",
+            "button": "Subscribe"
+        },
+        "description": "A next-generation open-world cyberpunk experience. Redefine your reality in a world without limits.",
+        "explore": "EXPLORE",
+        "support": "SUPPORT",
+        "connect": "CONNECT"
     }
 }

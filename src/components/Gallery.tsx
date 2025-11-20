@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const images = [
     { src: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2670&auto=format&fit=crop", span: "col-span-1 md:col-span-2 row-span-2" },
@@ -8,6 +9,8 @@ const images = [
 ];
 
 export const Gallery = () => {
+    const { t } = useTranslation();
+
     return (
         <section id="gallery" className="py-20 bg-dark relative">
             <div className="container mx-auto px-6">
@@ -17,8 +20,8 @@ export const Gallery = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-primary font-rajdhani font-bold tracking-widest uppercase mb-2">Media</h2>
-                    <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">INTO THE VOID</h3>
+                    <h2 className="text-primary font-rajdhani font-bold tracking-widest uppercase mb-2">{t('gallery.sectionTitle')}</h2>
+                    <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">{t('gallery.mainTitle')}</h3>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[800px]">

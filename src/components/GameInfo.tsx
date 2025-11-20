@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { Globe, Target, Users } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const GameInfo = () => {
+    const { t } = useTranslation();
+
     return (
         <section id="game-info" className="py-20 bg-dark relative overflow-hidden">
             {/* Background Elements */}
@@ -18,11 +21,10 @@ export const GameInfo = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-white mb-6">
-                        ENTER THE <span className="text-primary">SIMULATION</span>
+                        {t('gameInfo.title')} <span className="text-primary">{t('gameInfo.subtitle')}</span>
                     </h2>
                     <p className="text-gray-400 font-rajdhani text-xl max-w-3xl mx-auto">
-                        Neon Horizon is not just a game; it's a living, breathing digital ecosystem.
-                        In the year 2077, the boundaries between physical and digital reality have dissolved.
+                        {t('gameInfo.description')}
                     </p>
                 </motion.div>
 
@@ -35,9 +37,9 @@ export const GameInfo = () => {
                         className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-colors"
                     >
                         <Globe className="w-12 h-12 text-primary mb-6" />
-                        <h3 className="text-2xl font-orbitron font-bold text-white mb-4">A Living World</h3>
+                        <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{t('gameInfo.livingWorld.title')}</h3>
                         <p className="text-gray-400 font-rajdhani leading-relaxed">
-                            Explore Neo-Veridia, a sprawling metropolis where every NPC has a routine, every action has a consequence, and the city itself evolves based on player choices.
+                            {t('gameInfo.livingWorld.description')}
                         </p>
                     </motion.div>
 
@@ -49,9 +51,9 @@ export const GameInfo = () => {
                         className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-secondary/50 transition-colors"
                     >
                         <Target className="w-12 h-12 text-secondary mb-6" />
-                        <h3 className="text-2xl font-orbitron font-bold text-white mb-4">Your Mission</h3>
+                        <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{t('gameInfo.yourMission.title')}</h3>
                         <p className="text-gray-400 font-rajdhani leading-relaxed">
-                            As a rogue operative, you must uncover the truth behind "Project Aether." Infiltrate mega-corporations, hack secure networks, and decide the fate of humanity.
+                            {t('gameInfo.yourMission.description')}
                         </p>
                     </motion.div>
 
@@ -63,9 +65,9 @@ export const GameInfo = () => {
                         className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-colors"
                     >
                         <Users className="w-12 h-12 text-primary mb-6" />
-                        <h3 className="text-2xl font-orbitron font-bold text-white mb-4">Social Warfare</h3>
+                        <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{t('gameInfo.socialWarfare.title')}</h3>
                         <p className="text-gray-400 font-rajdhani leading-relaxed">
-                            Form alliances with other players, control districts, and engage in massive faction wars that reshape the political landscape of the city.
+                            {t('gameInfo.socialWarfare.description')}
                         </p>
                     </motion.div>
                 </div>

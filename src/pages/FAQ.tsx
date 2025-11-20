@@ -1,52 +1,54 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
-
-const faqs = [
-    {
-        question: "What platforms will Neon Horizon be available on?",
-        answer: "Neon Horizon will launch on PC (Steam, Epic Games Store), PlayStation 5, and Xbox Series X|S. A cloud version is also in development."
-    },
-    {
-        question: "Is there a multiplayer mode?",
-        answer: "Yes! The game features seamless drop-in/drop-out co-op for up to 4 players, as well as dedicated PvP zones within the open world."
-    },
-    {
-        question: "What are the minimum system requirements?",
-        answer: "We recommend at least an NVIDIA GTX 1060 or AMD equivalent for 1080p Low settings. For the full experience with Ray Tracing, an RTX 3060 or higher is recommended. Check our System Requirements page for details."
-    },
-    {
-        question: "Will there be microtransactions?",
-        answer: "Neon Horizon is a premium title. Microtransactions are strictly limited to cosmetic items only. No pay-to-win mechanics."
-    },
-    {
-        question: "Can I customize my character?",
-        answer: "Absolutely. Our 'Cyber-Forge' system allows for deep customization of your character's appearance, cybernetics, and skill trees."
-    },
-    {
-        question: "Is the world fully open?",
-        answer: "Yes, the metropolis of 'Neo-Veridia' is a massive, contiguous open world with no loading screens between districts or interiors."
-    },
-    {
-        question: "Does the game support cross-play?",
-        answer: "Yes, full cross-play and cross-progression are supported across all platforms from day one."
-    },
-    {
-        question: "When is the release date?",
-        answer: "We are targeting a Holiday 2025 release. Sign up for our newsletter to get the latest updates on beta testing."
-    },
-    {
-        question: "Will there be DLC?",
-        answer: "We have a robust post-launch roadmap including new districts, story expansions, and character classes."
-    },
-    {
-        question: "How do I report a bug?",
-        answer: "During the beta and after launch, you can report bugs directly through the in-game menu or via our official support portal."
-    }
-];
+import { useTranslation } from 'react-i18next';
 
 export const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const { t } = useTranslation();
+
+    const faqs = [
+        {
+            question: t('faq.q1'),
+            answer: t('faq.a1')
+        },
+        {
+            question: t('faq.q2'),
+            answer: t('faq.a2')
+        },
+        {
+            question: t('faq.q3'),
+            answer: t('faq.a3')
+        },
+        {
+            question: t('faq.q4'),
+            answer: t('faq.a4')
+        },
+        {
+            question: t('faq.q5'),
+            answer: t('faq.a5')
+        },
+        {
+            question: t('faq.q6'),
+            answer: t('faq.a6')
+        },
+        {
+            question: t('faq.q7'),
+            answer: t('faq.a7')
+        },
+        {
+            question: t('faq.q8'),
+            answer: t('faq.a8')
+        },
+        {
+            question: t('faq.q9'),
+            answer: t('faq.a9')
+        },
+        {
+            question: t('faq.q10'),
+            answer: t('faq.a10')
+        }
+    ];
 
     return (
         <div className="pt-32 pb-20 min-h-screen bg-dark">
@@ -58,10 +60,10 @@ export const FAQ = () => {
                 >
                     <HelpCircle className="w-16 h-16 text-primary mx-auto mb-6" />
                     <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
-                        FREQUENTLY ASKED <span className="text-primary">QUESTIONS</span>
+                        {t('faq.title')} <span className="text-primary">{t('faq.subtitle')}</span>
                     </h1>
                     <p className="text-gray-400 font-rajdhani text-xl">
-                        Everything you need to know about Neon Horizon.
+                        {t('faq.description')}
                     </p>
                 </motion.div>
 

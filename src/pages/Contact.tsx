@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, Send, User } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 export const Contact = () => {
+    const { t } = useTranslation();
     const [formState, setFormState] = useState({
         name: '',
         email: '',
@@ -42,10 +44,10 @@ export const Contact = () => {
                 >
                     <Mail className="w-16 h-16 text-primary mx-auto mb-6" />
                     <h1 className="text-5xl md:text-6xl font-orbitron font-bold text-white mb-6">
-                        CONTACT <span className="text-primary">SUPPORT</span>
+                        {t('contact.title')} <span className="text-primary">{t('contact.subtitle')}</span>
                     </h1>
                     <p className="text-gray-400 font-rajdhani text-xl">
-                        Encountered a glitch in the matrix? Need assistance? We're here to help.
+                        {t('contact.description')}
                     </p>
                 </motion.div>
 
@@ -58,7 +60,7 @@ export const Contact = () => {
                         className="space-y-8"
                     >
                         <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-                            <h3 className="text-2xl font-orbitron font-bold text-white mb-4">Direct Channels</h3>
+                            <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{t('contact.directChannels')}</h3>
                             <div className="space-y-4 font-rajdhani text-gray-300">
                                 <p className="flex items-center gap-3">
                                     <Mail className="text-primary" /> support@neonhorizon.game
@@ -70,7 +72,7 @@ export const Contact = () => {
                         </div>
 
                         <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-                            <h3 className="text-2xl font-orbitron font-bold text-white mb-4">HQ Location</h3>
+                            <h3 className="text-2xl font-orbitron font-bold text-white mb-4">{t('contact.hqLocation')}</h3>
                             <p className="font-rajdhani text-gray-300 leading-relaxed">
                                 Neon Horizon Studios<br />
                                 1337 Cyberpunk Blvd, Sector 7<br />
@@ -95,21 +97,21 @@ export const Contact = () => {
                                 <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                                     <Send className="w-10 h-10 text-primary" />
                                 </div>
-                                <h3 className="text-2xl font-orbitron font-bold text-white mb-2">Message Sent!</h3>
+                                <h3 className="text-2xl font-orbitron font-bold text-white mb-2">{t('contact.messageSent')}</h3>
                                 <p className="text-gray-400 font-rajdhani">
-                                    Our support team will respond within 24 hours.
+                                    {t('contact.responsePromise')}
                                 </p>
                                 <button
                                     onClick={() => setIsSubmitted(false)}
                                     className="mt-8 text-primary hover:text-white transition-colors font-rajdhani font-bold"
                                 >
-                                    Send another message
+                                    {t('contact.sendAnother')}
                                 </button>
                             </motion.div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">Codename / Name</label>
+                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">{t('contact.nameLabel')}</label>
                                     <div className="relative">
                                         <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
                                         <input
@@ -119,13 +121,13 @@ export const Contact = () => {
                                             value={formState.name}
                                             onChange={handleChange}
                                             className="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-12 pr-4 text-white focus:border-primary focus:outline-none transition-colors font-rajdhani"
-                                            placeholder="Enter your name"
+                                            placeholder={t('contact.namePlaceholder')}
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">Comms Link / Email</label>
+                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">{t('contact.emailLabel')}</label>
                                     <div className="relative">
                                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
                                         <input
@@ -135,13 +137,13 @@ export const Contact = () => {
                                             value={formState.email}
                                             onChange={handleChange}
                                             className="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-12 pr-4 text-white focus:border-primary focus:outline-none transition-colors font-rajdhani"
-                                            placeholder="Enter your email"
+                                            placeholder={t('contact.emailPlaceholder')}
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">Subject</label>
+                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">{t('contact.subjectLabel')}</label>
                                     <input
                                         type="text"
                                         name="subject"
@@ -149,12 +151,12 @@ export const Contact = () => {
                                         value={formState.subject}
                                         onChange={handleChange}
                                         className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white focus:border-primary focus:outline-none transition-colors font-rajdhani"
-                                        placeholder="What's this about?"
+                                        placeholder={t('contact.subjectPlaceholder')}
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">Transmission / Message</label>
+                                    <label className="block text-gray-400 font-rajdhani mb-2 text-sm">{t('contact.messageLabel')}</label>
                                     <textarea
                                         name="message"
                                         required
@@ -162,7 +164,7 @@ export const Contact = () => {
                                         onChange={handleChange}
                                         rows={4}
                                         className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white focus:border-primary focus:outline-none transition-colors font-rajdhani resize-none"
-                                        placeholder="Type your message here..."
+                                        placeholder={t('contact.messagePlaceholder')}
                                     />
                                 </div>
 
@@ -171,9 +173,9 @@ export const Contact = () => {
                                     className="w-full flex items-center justify-center gap-2"
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? 'Transmitting...' : (
+                                    {isSubmitting ? t('contact.transmitting') : (
                                         <>
-                                            Send Transmission <Send className="w-4 h-4" />
+                                            {t('contact.sendButton')} <Send className="w-4 h-4" />
                                         </>
                                     )}
                                 </Button>

@@ -1,38 +1,41 @@
 import { motion } from 'framer-motion';
 import { Cpu, Globe, Users, Zap } from 'lucide-react';
-
-const features = [
-    {
-        title: "Seamless Open World",
-        description: "Explore a massive, neon-drenched metropolis without loading screens.",
-        icon: Globe,
-        colSpan: "md:col-span-2",
-        bg: "bg-gradient-to-br from-purple-900/50 to-blue-900/50"
-    },
-    {
-        title: "Next-Gen Combat",
-        description: "Fluid, physics-based combat system with customizable cybernetics.",
-        icon: Zap,
-        colSpan: "md:col-span-1",
-        bg: "bg-gradient-to-br from-red-900/50 to-orange-900/50"
-    },
-    {
-        title: "Multiplayer Raids",
-        description: "Team up with friends to take down mega-corporations.",
-        icon: Users,
-        colSpan: "md:col-span-1",
-        bg: "bg-gradient-to-br from-green-900/50 to-emerald-900/50"
-    },
-    {
-        title: "Ray Tracing Overdrive",
-        description: "Experience hyper-realistic lighting and reflections.",
-        icon: Cpu,
-        colSpan: "md:col-span-2",
-        bg: "bg-gradient-to-br from-blue-900/50 to-cyan-900/50"
-    }
-];
+import { useTranslation } from 'react-i18next';
 
 export const Features = () => {
+    const { t } = useTranslation();
+
+    const features = [
+        {
+            title: t('features.seamlessOpenWorld.title'),
+            description: t('features.seamlessOpenWorld.description'),
+            icon: Globe,
+            colSpan: "md:col-span-2",
+            bg: "bg-gradient-to-br from-purple-900/50 to-blue-900/50"
+        },
+        {
+            title: t('features.nextGenCombat.title'),
+            description: t('features.nextGenCombat.description'),
+            icon: Zap,
+            colSpan: "md:col-span-1",
+            bg: "bg-gradient-to-br from-red-900/50 to-orange-900/50"
+        },
+        {
+            title: t('features.multiplayerRaids.title'),
+            description: t('features.multiplayerRaids.description'),
+            icon: Users,
+            colSpan: "md:col-span-1",
+            bg: "bg-gradient-to-br from-green-900/50 to-emerald-900/50"
+        },
+        {
+            title: t('features.rayTracingOverdrive.title'),
+            description: t('features.rayTracingOverdrive.description'),
+            icon: Cpu,
+            colSpan: "md:col-span-2",
+            bg: "bg-gradient-to-br from-blue-900/50 to-cyan-900/50"
+        }
+    ];
+
     return (
         <section id="features" className="py-20 bg-dark relative overflow-hidden">
             <div className="container mx-auto px-6">
@@ -42,8 +45,8 @@ export const Features = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-primary font-rajdhani font-bold tracking-widest uppercase mb-2">System Features</h2>
-                    <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">REDEFINE REALITY</h3>
+                    <h2 className="text-primary font-rajdhani font-bold tracking-widest uppercase mb-2">{t('features.sectionTitle')}</h2>
+                    <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">{t('features.mainTitle')}</h3>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

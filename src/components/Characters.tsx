@@ -1,35 +1,38 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
-
-const characters = [
-    {
-        id: 1,
-        name: "VANGUARD",
-        role: "Tank / Assault",
-        description: "Heavily armored frontline specialist equipped with energy shields and kinetic hammers.",
-        image: "https://images.unsplash.com/photo-1620648378507-4ad3467d8999?q=80&w=2500&auto=format&fit=crop",
-        stats: { strength: 90, speed: 40, tech: 50 }
-    },
-    {
-        id: 2,
-        name: "GHOST",
-        role: "Stealth / Infiltrator",
-        description: "Master of optical camouflage and silent takedowns. Uses nanotech blades.",
-        image: "https://images.unsplash.com/photo-1531297461136-82lw9z2c?q=80&w=2670&auto=format&fit=crop", // Placeholder
-        stats: { strength: 50, speed: 95, tech: 70 }
-    },
-    {
-        id: 3,
-        name: "TECHNOMANCER",
-        role: "Support / Hacker",
-        description: "Controls the battlefield by hacking enemy cybernetics and deploying drones.",
-        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2564&auto=format&fit=crop", // Placeholder
-        stats: { strength: 30, speed: 60, tech: 100 }
-    }
-];
+import { useTranslation } from 'react-i18next';
 
 export const Characters = () => {
+    const { t } = useTranslation();
+
+    const characters = [
+        {
+            id: 1,
+            name: t('characters.vanguard.name'),
+            role: t('characters.vanguard.role'),
+            description: t('characters.vanguard.description'),
+            image: "https://images.unsplash.com/photo-1620648378507-4ad3467d8999?q=80&w=2500&auto=format&fit=crop",
+            stats: { strength: 90, speed: 40, tech: 50 }
+        },
+        {
+            id: 2,
+            name: t('characters.ghost.name'),
+            role: t('characters.ghost.role'),
+            description: t('characters.ghost.description'),
+            image: "https://images.unsplash.com/photo-1531297461136-82lw9z2c?q=80&w=2670&auto=format&fit=crop", // Placeholder
+            stats: { strength: 50, speed: 95, tech: 70 }
+        },
+        {
+            id: 3,
+            name: t('characters.technomancer.name'),
+            role: t('characters.technomancer.role'),
+            description: t('characters.technomancer.description'),
+            image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2564&auto=format&fit=crop", // Placeholder
+            stats: { strength: 30, speed: 60, tech: 100 }
+        }
+    ];
+
     const [activeChar, setActiveChar] = useState(characters[0]);
 
     return (
@@ -44,8 +47,8 @@ export const Characters = () => {
                     viewport={{ once: true }}
                     className="mb-12"
                 >
-                    <h2 className="text-primary font-rajdhani font-bold tracking-widest uppercase mb-2">Choose Your Path</h2>
-                    <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">CLASSES</h3>
+                    <h2 className="text-primary font-rajdhani font-bold tracking-widest uppercase mb-2">{t('characters.sectionTitle')}</h2>
+                    <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white">{t('characters.mainTitle')}</h3>
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row gap-12">
@@ -56,8 +59,8 @@ export const Characters = () => {
                                 key={char.id}
                                 onClick={() => setActiveChar(char)}
                                 className={`text-left p-6 rounded-xl border transition-all duration-300 group ${activeChar.id === char.id
-                                        ? 'bg-white/10 border-primary'
-                                        : 'bg-transparent border-white/10 hover:border-white/30'
+                                    ? 'bg-white/10 border-primary'
+                                    : 'bg-transparent border-white/10 hover:border-white/30'
                                     }`}
                             >
                                 <div className="flex items-center justify-between">

@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Button } from './ui/Button';
 import { Gamepad2, Twitter, Youtube, Twitch, Instagram } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <footer className="bg-black pt-20 pb-10 border-t border-white/10">
             <div className="container mx-auto px-6">
@@ -12,16 +15,16 @@ export const Footer = () => {
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="text-center md:text-left">
-                            <h3 className="text-3xl font-orbitron font-bold text-white mb-2">JOIN THE RESISTANCE</h3>
-                            <p className="text-gray-400 font-rajdhani">Sign up for exclusive updates and in-game rewards.</p>
+                            <h3 className="text-3xl font-orbitron font-bold text-white mb-2">{t('footer.newsletter.title')}</h3>
+                            <p className="text-gray-400 font-rajdhani">{t('footer.newsletter.description')}</p>
                         </div>
                         <div className="flex w-full md:w-auto gap-4">
                             <input
                                 type="email"
-                                placeholder="Enter your email"
+                                placeholder={t('footer.newsletter.placeholder')}
                                 className="bg-black/50 border border-white/20 rounded-lg px-6 py-3 text-white focus:outline-none focus:border-primary w-full md:w-80 font-rajdhani"
                             />
-                            <Button variant="primary">Subscribe</Button>
+                            <Button variant="primary">{t('footer.newsletter.button')}</Button>
                         </div>
                     </div>
                 </div>
@@ -36,31 +39,31 @@ export const Footer = () => {
                             </span>
                         </Link>
                         <p className="text-gray-500 font-rajdhani text-sm leading-relaxed">
-                            A next-generation open-world cyberpunk experience. Redefine your reality in a world without limits.
+                            {t('footer.description')}
                         </p>
                     </div>
 
                     <div>
-                        <h4 className="text-white font-orbitron font-bold mb-6">EXPLORE</h4>
+                        <h4 className="text-white font-orbitron font-bold mb-6">{t('footer.explore')}</h4>
                         <ul className="space-y-4 text-gray-400 font-rajdhani">
-                            <li><Link to="/#features" className="hover:text-primary transition-colors">Game Info</Link></li>
-                            <li><Link to="/#characters" className="hover:text-primary transition-colors">Classes</Link></li>
-                            <li><Link to="/#gallery" className="hover:text-primary transition-colors">Media</Link></li>
-                            <li><Link to="/specs" className="hover:text-primary transition-colors">System Specs</Link></li>
+                            <li><Link to="/#features" className="hover:text-primary transition-colors">{t('nav.features')}</Link></li>
+                            <li><Link to="/#characters" className="hover:text-primary transition-colors">{t('nav.characters')}</Link></li>
+                            <li><Link to="/#gallery" className="hover:text-primary transition-colors">{t('nav.gallery')}</Link></li>
+                            <li><Link to="/specs" className="hover:text-primary transition-colors">{t('nav.specs')}</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 className="text-white font-orbitron font-bold mb-6">SUPPORT</h4>
+                        <h4 className="text-white font-orbitron font-bold mb-6">{t('footer.support')}</h4>
                         <ul className="space-y-4 text-gray-400 font-rajdhani">
-                            <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-                            <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                            <li><Link to="/faq" className="hover:text-primary transition-colors">{t('nav.faq')}</Link></li>
+                            <li><Link to="/contact" className="hover:text-primary transition-colors">{t('contact.title')}</Link></li>
+                            <li><Link to="/privacy" className="hover:text-primary transition-colors">{t('privacy.title')}</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 className="text-white font-orbitron font-bold mb-6">CONNECT</h4>
+                        <h4 className="text-white font-orbitron font-bold mb-6">{t('footer.connect')}</h4>
                         <div className="flex gap-4">
                             <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                                 <Twitter className="w-5 h-5" />

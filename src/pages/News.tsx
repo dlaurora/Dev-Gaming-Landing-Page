@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Tag, ChevronRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 interface NewsItem {
     id: number;
@@ -39,6 +40,8 @@ const newsData: NewsItem[] = [
 ];
 
 export const News = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-screen pt-24 pb-12 px-6 container mx-auto">
             <motion.div
@@ -47,11 +50,11 @@ export const News = () => {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-16"
             >
-                <h1 className="text-5xl md:text-7xl font-orbitron font-black text-white mb-4 glitch-text" data-text="TRANSMISSIONS">
-                    TRANSMISSIONS
+                <h1 className="text-5xl md:text-7xl font-orbitron font-black text-white mb-4 glitch-text" data-text={t('news.title')}>
+                    {t('news.title')}
                 </h1>
                 <p className="text-xl text-primary font-rajdhani tracking-widest">
-                    LATEST UPDATES FROM THE DEVELOPMENT TEAM
+                    {t('news.subtitle')}
                 </p>
             </motion.div>
 
@@ -94,7 +97,7 @@ export const News = () => {
                             </p>
 
                             <Button variant="outline" className="w-full group-hover:bg-primary/10 group-hover:border-primary/50">
-                                Read Transmission <ChevronRight className="w-4 h-4 ml-2" />
+                                {t('news.readMore')} <ChevronRight className="w-4 h-4 ml-2" />
                             </Button>
                         </div>
                     </motion.article>

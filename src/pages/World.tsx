@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { WorldMap } from '../components/WorldMap';
+import { useTranslation } from 'react-i18next';
 
 export const World = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-screen pt-24 pb-12 px-6 container mx-auto">
             <motion.div
@@ -10,11 +13,11 @@ export const World = () => {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-12"
             >
-                <h1 className="text-5xl md:text-7xl font-orbitron font-black text-white mb-4 glitch-text" data-text="NEO-VERIDIA">
-                    NEO-VERIDIA
+                <h1 className="text-5xl md:text-7xl font-orbitron font-black text-white mb-4 glitch-text" data-text={t('world.title')}>
+                    {t('world.title')}
                 </h1>
                 <p className="text-xl text-primary font-rajdhani tracking-widest">
-                    EXPLORE THE SECTORS
+                    {t('world.subtitle')}
                 </p>
             </motion.div>
 
